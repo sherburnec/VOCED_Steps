@@ -26,10 +26,14 @@ spectral_colors = np.select(spectral_temps, colors, default='gray')
 
 print("Testing")
 # Setup Scatter plot and show
-plt.scatter(seip_data['ra'], seip_data['dec'], c=spectral_colors, label="Temperatures")
-plt.grid(True)
-plt.xlabel('Right Ascension')
-plt.ylabel('Declination')
+# plt.scatter(seip_data['ra'], seip_data['dec'], c=spectral_colors, label="Temperatures")
+# plt.grid(True)
+# plt.xlabel('Right Ascension')
+# plt.ylabel('Declination')
+
+ax = plt.subplot(projection ='mollweide')
+ax.scatter(np.deg2rad((seip_data['ra']) - 180), np.deg2rad(seip_data['dec']), c=spectral_colors)
+ax.grid(True)
 
 try:
     handles = [plt.plot([], [], marker='o', ls='', color=c)[0] for c in colors]
@@ -38,8 +42,4 @@ try:
 except Exception as e:
     print(f"An error occurred: {e}")
 
-
-# ax = plt.subplot(projection ='mollweide')
-# ax.scatter(np.deg2rad(seip_data['ra']), seip_data['dec'], c=spectral_colors)
-# ax.grid(True)
 # plt.show()
