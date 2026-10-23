@@ -47,9 +47,6 @@ for median in vp['medians']:
         bbox=dict(facecolor='C0',alpha=0.1,edgecolor='none',pad=1),
     )
 
-# ax.set(xlim=(0, 8), xticks=np.arange(1, 8),
-#        ylim=(0, 8), yticks=np.arange(1, 8))
-
 plt.suptitle('Temperature ranges through filtered data sets', fontsize = 20)
 plt.title('Representing 10th to 90th percentile', fontsize = 15)
 plt.ylabel('Temperature', fontsize = 15)
